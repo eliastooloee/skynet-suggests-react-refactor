@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AnalyzedReposPage from './containers/AnalyzedReposPage'
-import UnanalyzedReposPage from './containers/UnanalyzedReposPage'
+import AnalyzedReposPage from './components/RepoCard'
+import UnanalyzedReposPage from './components/UnanalyzedRepoCard'
 import Navbar from "./components/NavBar";
 
 class App extends Component {
