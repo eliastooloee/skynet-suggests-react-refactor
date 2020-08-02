@@ -12,6 +12,32 @@ class App extends Component {
       user: {}
     }
   }
+
+  componentDidMount() {
+    const token = localStorage.getItem("token");
+    if (token) {
+      // console.log('there is a token');
+      // make a request to the backend and find our user
+      api.auth.getCurrentUser().then(user => {
+        // console.log(user)
+        const updatedState = { ...this.state.auth, user: user };
+        this.setState({ auth: updatedState });
+      });
+      this.getMaps();
+    }
+  }
+
+  login = data => {
+    const updatedState = { ...this.state.auth, user: {id: data.id,  username: data.username} };
+    localStorage.setItem("token", data.jwt);
+    this.setState({ auth: updatedState });
+  };
+
+  logout = () => {
+    localStorage.removeItem("token");
+    this.setState({ auth: { user: {} } });
+    this.props.history.push('/login');
+  };
   
   render() {
     return (
