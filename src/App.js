@@ -38,6 +38,12 @@ class App extends Component {
     this.setState({ auth: { user: {} } });
     this.props.history.push('/login');
   };
+
+  renderRepos = (user) => {
+      user.repos.forEach(repo => {
+          showRepo(repo)
+      });
+  }
   
   render() {
     return (

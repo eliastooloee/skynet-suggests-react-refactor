@@ -10,12 +10,12 @@ const RepoCard = props => {
         <Container>
             <Row>
             <Col>
-                <div className="map-card">
+                <div className="repo-card">
                     <h1 > {map.name} </h1>
-                    <p> Repository Name {map.latitude}°</p>
+                    <p> Repository Name {repo.nickname}°</p>
                     <Button
                         onClick={() => {
-                        {props.selectMap(map);
+                        {props.selectMap(repo);
                             props.history.push("/map");};
                         }}
                         > 
@@ -25,7 +25,7 @@ const RepoCard = props => {
                     <Button
                         classname="delete-button"
                         onClick={() => {
-                        {props.deleteMap(map)};
+                        {props.deleteMap(repo)};
                         }}
                         > 
                         Delete Repository from your account.
@@ -37,4 +37,4 @@ const RepoCard = props => {
     </div>
     )
 }
-export default withRouter(MapCard);
+export default withRouter(RepoCard);

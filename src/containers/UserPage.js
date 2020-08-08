@@ -5,15 +5,14 @@ import RepoCard from '../components/RepoCard'
 const MyRepos = props => {
 
   const componentDidMount = () => {
-    // props.getMaps();
     }
     
 
      function renderRepos() {
         return props.myRepos.length > 0 ? props.myMaps.map(map => {
           return (
-            <div key={map.id} >
-              <RepoCard {...props} map={map} key={map.id} selectMap={props.selectMap} deleteMap={props.deleteMap} />
+            <div key={repo.id} >
+              <RepoCard {...props} map={map} key={repo.id}  deleteMap={props.deleteMap} />
             </div>
           )
         }): null
