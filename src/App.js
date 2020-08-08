@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import AnalyzedReposPage from './components/RepoCard'
-import UnanalyzedReposPage from './components/UnanalyzedRepoCard'
+import UserPage from './containers/UserPage'
 import Navbar from "./components/NavBar";
+import RepoCard from './components/RepoCard'
 
 class App extends Component {
 
@@ -44,8 +44,8 @@ class App extends Component {
       <div className="App">
           <Navbar
               color="green"
-              title="Simple Map"
-              description="Cartography Doesn't Have to be Hard"
+              title="Skynet Suggests"
+              description="Listen to Your Computer"
               currentUser={this.state.auth.user}
               handleLogout={this.logout}
             />
