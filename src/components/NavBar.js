@@ -17,11 +17,8 @@ const Navbar = props => {
         {/* <Link to="/mymaps" className="item">
           My Maps
         </Link> */}
-        <Link to="/map" className="item" >
-          New Map
-        </Link>
         {loggedIn ? (
-          <a className="item" href="/mymaps"> {currentUser.username}'s Maps</a>
+          <a className="item" href="/mymaps"> {currentUser.username}'s Repos</a>
         ) : null}
         {loggedIn ? (
           <a className="item" href="/login">
