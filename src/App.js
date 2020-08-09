@@ -5,6 +5,8 @@ import UserPage from './containers/UserPage'
 import Navbar from "./components/NavBar";
 import RepoCard from './components/RepoCard'
 
+import { Route, Link, withRouter } from "react-router-dom";
+
 class App extends Component {
 
   state = {
@@ -44,6 +46,15 @@ class App extends Component {
           showRepo(repo)
       });
   }
+
+   deleteRepo(user) {
+    fetch(`http://localhost:3000/repos/${repo.id}`, {
+        method: "DELETE"
+    })
+    .then(res => {
+        repoDiv.remove()
+    })
+}
   
   render() {
     return (
@@ -59,4 +70,4 @@ class App extends Component {
     );
   }
 }
-export default App;
+export default withRouter(App);

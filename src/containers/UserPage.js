@@ -12,7 +12,7 @@ const MyRepos = props => {
         return props.myRepos.length > 0 ? props.myMaps.map(map => {
           return (
             <div key={repo.id} >
-              <RepoCard {...props} map={map} key={repo.id}  deleteMap={props.deleteMap} />
+              <RepoCard {...props} repo={repo} key={repo.id}  deleteMap={props.deleteRepo} />
             </div>
           )
         }): null
@@ -29,4 +29,4 @@ const MyRepos = props => {
       );
 };
 
-export default MyMaps;
+export default MyRepos;
