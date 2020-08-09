@@ -72,7 +72,7 @@ class App extends Component {
           <Route 
             exact 
             path="/userpage" 
-            render={props => <UserPage {...props} currentUser={this.state.auth.user} selectMap={this.selectMap} myRepos={this.state.auth.user.repos} deleteRepo={this.deleteRepo} />} 
+            render={props => <UserPage {...props} currentUser={this.state.auth.user} myRepos={this.state.auth.user.repos} deleteRepo={this.deleteRepo} />} 
           />
           <Route
             exact

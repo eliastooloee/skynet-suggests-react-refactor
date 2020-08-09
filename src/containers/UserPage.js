@@ -2,17 +2,17 @@ import React, { Component } from 'react';
 import RepoCard from '../components/RepoCard'
 
 
-const MyRepos = props => {
+const UserPage = props => {
 
   const componentDidMount = () => {
     }
     
 
      function renderRepos() {
-        return props.myRepos.length > 0 ? props.myMaps.map(map => {
+        return props.myRepos.length > 0 ? props.myMaps.map(repo => {
           return (
             <div key={repo.id} >
-              <RepoCard {...props} repo={repo} key={repo.id}  deleteMap={props.deleteRepo} />
+              <RepoCard {...props} repo={repo} key={repo.id}  deleteRepo={props.deleteRepo} />
             </div>
           )
         }): null
@@ -29,4 +29,4 @@ const MyRepos = props => {
       );
 };
 
-export default MyRepos;
+export default UserPage;
