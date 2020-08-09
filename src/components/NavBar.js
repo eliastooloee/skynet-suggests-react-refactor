@@ -9,8 +9,8 @@ const Navbar = props => {
       <Link to="/" className="item">
         <h2 className="ui header">
           <i className={`${props.icon} icon`} />
-          <div className="navbar-title">SimpleMaps</div>
-          <div className="sub-header">Cartography Doesn't Have to be Hard</div>
+          <div className="navbar-title">Skynet Suggests</div>
+          <div className="sub-header">Listen to the Computer</div>
         </h2>
       </Link>
       <div className="right-menu">
