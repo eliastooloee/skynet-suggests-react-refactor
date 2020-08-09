@@ -58,15 +58,35 @@ class App extends Component {
   
   render() {
     return (
-      <div className="App">
+      <div>
+      <div className="ui container grid">
           <Navbar
-              color="green"
-              title="Skynet Suggests"
-              description="Listen to Your Computer"
-              currentUser={this.state.auth.user}
-              handleLogout={this.logout}
-            />
+            color="green"
+            title="Skynet Suggests"
+            description="Listen to the Computer"
+            currentUser={this.state.auth.user}
+            handleLogout={this.logout}
+          />
+        <div id="content" className="sixteen wide column">
+       
+          <Route 
+            exact 
+            path="/userpage" 
+            render={props => <UserPage {...props} currentUser={this.state.auth.user} selectMap={this.selectMap} myRepos={this.state.auth.user.repos} deleteRepo={this.deleteRepo} />} 
+          />
+          <Route
+            exact
+            path="/login"
+            render={props => <Login {...props} onLogin={this.login} />}
+          />
+           <Route
+            exact
+            path="/signup"
+            render={props => <SignUp {...props} signUp={this.signUp} />}
+          />
+        </div>
       </div>
+    </div>
     );
   }
 }
