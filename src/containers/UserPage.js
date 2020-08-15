@@ -9,7 +9,7 @@ const UserPage = props => {
     
 
      function renderRepos() {
-        return props.myRepos.length > 0 ? props.myMaps.map(repo => {
+        return props.myRepos.length > 0 ? props.myRepos.map(repo => {
           return (
             <div key={repo.id} >
               <RepoCard {...props} repo={repo} key={repo.id}  deleteRepo={props.deleteRepo} />

@@ -25,7 +25,7 @@ class App extends Component {
         const updatedState = { ...this.state.auth, user: user };
         this.setState({ auth: updatedState });
       });
-      this.getMaps();
+      this.renderRepos();
     }
   }
 
@@ -41,20 +41,30 @@ class App extends Component {
     this.props.history.push('/login');
   };
 
-  renderRepos = (user) => {
-      user.repos.forEach(repo => {
-          showRepo(repo)
-      });
-  }
+  // renderRepos = (user) => {
+  //     user.repos.forEach(repo => {
+  //         showRepo(repo)
+  //     });
+  // }
 
-   deleteRepo(user) {
-    fetch(`http://localhost:3000/repos/${repo.id}`, {
-        method: "DELETE"
-    })
-    .then(res => {
-        repoDiv.remove()
-    })
-}
+  // renderRepos= () => {
+  //   return this.state.auth.user.repos.length > 0 ? props.myMaps.map(repo => {
+  //     return (
+  //       <div key={repo.id} >
+  //         <RepoCard {...props} repo={repo} key={repo.id}  deleteRepo={props.deleteRepo} />
+  //       </div>
+  //     )
+  //   }): null
+  // }
+
+//    deleteRepo(user) {
+//     fetch(`http://localhost:3000/repos/${repo.id}`, {
+//         method: "DELETE"
+//     })
+//     .then(res => {
+//         repoDiv.remove()
+//     })
+// }
   
   render() {
     return (
