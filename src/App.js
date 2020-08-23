@@ -57,14 +57,14 @@ class App extends Component {
   //   }): null
   // }
 
-//    deleteRepo(user) {
-//     fetch(`http://localhost:3000/repos/${repo.id}`, {
-//         method: "DELETE"
-//     })
-//     .then(res => {
-//         repoDiv.remove()
-//     })
-// }
+   deleteRepo(user) {
+    fetch(`http://localhost:3000/repos/${repo.id}`, {
+        method: "DELETE"
+    })
+    .then(res => {
+        repoDiv.remove()
+    })
+}
 
 analyzeRepo(repo){
   fetch(`http://localhost:3000/repos/${repo.id}/analysis`)
@@ -86,6 +86,52 @@ analyzeRepo(repo){
   })
   .catch(err => console.log(err))
 }
+
+ seeAnalysis (repo) {
+  unanalyzedRepositories.innerHTML = ""
+  let suggestionsList = document.createElement("ul")
+  console.log(repo)
+  for(const suggestion of repo.suggestions){
+    let suggestionCard = document.createElement("div")
+    suggestionCard.setAttribute("class", "suggestion")
+
+    let fileTab = document.createElement("p")
+    fileTab.textContent = suggestion.file
+
+    let dpTab = document.createElement("p")
+
+    let severityTab = document.createElement("p")
+    severityTab.textContent = suggestion.severity
+
+    let messageTab = document.createElement("p")
+    messageTab.textContent = suggestion.message
+
+    let rowTab = document.createElement("p")
+
+    let columnTab = document.createElement("p")
+
+    suggestionCard.appendChild(fileTab)
+    suggestionCard.appendChild(severityTab)
+    suggestionCard.appendChild(messageTab)
+
+    unanalyzedRepositories.appendChild(suggestionCard)
+    // File
+    // dp id
+    // severity
+    // message
+    // row
+    // column
+  }
+  let hideButton = document.createElement("button")
+  hideButton.textContent = "Hide Analysis"
+  unanalyzedRepositories.appendChild(hideButton)
+
+  hideButton.addEventListener("click", () => {
+    console.log(currentUser.repos)
+    console.log(repo)
+    renderRepos(currentUser);
+  } )
+}
   
   render() {
     return (
@@ -103,7 +149,7 @@ analyzeRepo(repo){
           <Route 
             exact 
             path="/userpage" 
-            render={props => <UserPage {...props} currentUser={this.state.auth.user} myRepos={this.state.auth.user.repos} deleteRepo={this.deleteRepo} />} 
+            render={props => <UserPage {...props} currentUser={this.state.auth.user} myRepos={this.state.auth.user.repos} deleteRepo={this.deleteRepo} analyzeRepo={this.analyzeRepo} />} 
           />
           <Route
             exact

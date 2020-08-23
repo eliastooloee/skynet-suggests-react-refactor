@@ -19,7 +19,7 @@ const RepoCard = props => {
                             props.history.push("/map");};
                         }}
                         > 
-                        Show Repository
+                        Analyze Repository
                     </Button>
                     
                     <Button
