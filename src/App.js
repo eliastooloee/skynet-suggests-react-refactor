@@ -65,6 +65,27 @@ class App extends Component {
 //         repoDiv.remove()
 //     })
 // }
+
+analyzeRepo(repo){
+  fetch(`http://localhost:3000/repos/${repo.id}/analysis`)
+  .then(res => res.json())
+  .then(data => {
+    if(data.message){
+      analysisModal(data.message)
+      if(data.message != "Something went wrong, please try again."){
+        return setTimeout(analyzeRepo(repo, repoDiv), 1000)
+      }
+    } else {
+      analysisModal("Analysis Complete.")
+      repo = data
+      let userRepo = currentUser.repos.find(({id}) => id === repo.id)
+      let returnedUserRepo = Object.assign(userRepo, repo)
+      console.log(currentUser.repos)
+      analyzeButtonTextAndFunc(repo, repoDiv)
+    }
+  })
+  .catch(err => console.log(err))
+}
   
   render() {
     return (
