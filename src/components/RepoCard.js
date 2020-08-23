@@ -5,6 +5,17 @@ import { Row, Col, Container, Button } from 'react-bootstrap';
 const RepoCard = props => {
     const { map, selectMap } = props;
 
+
+    // showRepoSuggestions() {
+    //     return props.myRepos.length > 0 ? props.myRepos.map(repo => {
+    //       return (
+    //         <div key={repo.id} >
+    //           <SuggestionCard {...props} repo={repo} key={repo.id}  deleteRepo={props.deleteRepo} analyzeRepo={props.analyzeRepo} />
+    //         </div>
+    //       )
+    //     }): null
+    //   }
+
     return(
         <div>
         <Container>
@@ -12,13 +23,12 @@ const RepoCard = props => {
             <Col>
                 <div className="repo-card">
                     <h1 > {map.name} </h1>
-                    <p> Repository Name {repo.nickname}°</p>
+                    <p> Repository Name {repo.nickname}</p>
                     <Button
                         onClick={() => {
-                        {props.analyzeRepository(repo);
-                            props.history.push("/map");};
+                        {props.analyzeRepository(repo)};
                         }}
-                        > 
+                     > 
                         Analyze Repository
                     </Button>
                     
