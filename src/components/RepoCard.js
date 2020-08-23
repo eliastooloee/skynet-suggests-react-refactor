@@ -15,7 +15,7 @@ const RepoCard = props => {
                     <p> Repository Name {repo.nickname}°</p>
                     <Button
                         onClick={() => {
-                        {props.selectMap(repo);
+                        {props.analyzeRepository(repo);
                             props.history.push("/map");};
                         }}
                         > 
@@ -25,7 +25,7 @@ const RepoCard = props => {
                     <Button
                         classname="delete-button"
                         onClick={() => {
-                        {props.deleteMap(repo)};
+                        {props.deleteRepo(repo)};
                         }}
                         > 
                         Delete Repository from your account.
