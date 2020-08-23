@@ -11,7 +11,8 @@ class App extends Component {
 
   state = {
     auth: {
-      user: {}
+      user: {
+      }
     }
   }
 
@@ -57,6 +58,25 @@ class App extends Component {
   //   }): null
   // }
 
+  addRepository(repo) {
+    console.log(repo)
+    fetch('http://localhost:3000/repos/', {
+        method: 'POST',
+        headers: {"Content-Type": "application/json",
+                  Accept: "application/json"
+                },
+        body: JSON.stringify(repo)         
+      }).then(res=> res.json())
+      .then(res => {
+          console.log(res)
+          return res
+      })
+      .then(repo => {
+        showRepo(repo)
+      })
+      .catch(err => console.log(err))
+} 
+
    deleteRepo(user) {
     fetch(`http://localhost:3000/repos/${repo.id}`, {
         method: "DELETE"
@@ -88,8 +108,6 @@ analyzeRepo(repo){
 }
 
  seeAnalysis (repo) {
-  unanalyzedRepositories.innerHTML = ""
-  let suggestionsList = document.createElement("ul")
   console.log(repo)
   for(const suggestion of repo.suggestions){
     let suggestionCard = document.createElement("div")
